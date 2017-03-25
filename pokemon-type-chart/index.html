@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Quickly find a Pokemon GO type chart. Learn which type(s) deal super effective damage against your Pokemon [green] and your Pokemon type resistances [red]." />
+    <title>Pokemon GO Type Chart Calculator</title>
+    <link rel="icon" href="/images/pkb.png">
+    <link rel="apple-touch-icon" href="pkb.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/pkb76.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/pkb120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/pkb152.png">
+    <link rel="icon" sizes="192x192" href="/images/pkbx4.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:400,700|Source+Sans+Pro:400,700">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../css/material.css">
+    <link rel="stylesheet" href="../css/style.min.css?v5">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-486826-23', 'auto');
+      ga('send', 'pageview');
+    </script>
+</head>
+
+<body>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+<header class="mdl-layout__header">
+  <div class="mdl-layout__header-row">
+    <span class="mdl-layout-title"><a href="/">PokeDetect</a></span>
+    <div class="mdl-layout-spacer"></div>
+     <a class="mdl-navigation__link pokemon-plus" href="https://www.amazon.com/gp/offer-listing/B01H482N6E/ref=as_li_ss_tl?ie=UTF8&condition=all&linkCode=ll2&tag=xhila0ac-20&linkId=cdbd05cc2debed32e39cc56172362012" target="_blank" onclick="ga('send', 'event', 'BuyPokePlus', 'clicked');">Buy <span class="hide-iphone-5">Pokemon</span> Go Plus!</a>
+     <a class="mdl-navigation__link gym-badges" href="https://www.amazon.com/gp/product/B00UPQ1NZ0/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=xhila0ac-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B00UPQ1NZ0&linkId=bca6224d37fbf732c46e20a87af93099" target="_blank" onclick="ga('send', 'event', 'BuyGymBadges', 'clicked');">Buy <span class="hide-iphone-5">Gym</span> Badges!</a>
+  </div>
+  <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+          <a class="mdl-layout__tab" href="/pokemon-quiz/">Quiz</a>
+          <a class="mdl-layout__tab" href="/iv-calculator/">IV Calculator</a>
+          <a class="mdl-layout__tab is-active" href="/pokemon-type-chart/">Type Chart</a>
+          <a class="mdl-layout__tab" href="/pokemon-weakness-calculator/">Gym Weakness</a>
+  </div>
+</header>
+<div class="mdl-layout__drawer">
+  <span class="mdl-layout-title"><a href="/">PokeDetect</a></span>
+  <nav class="mdl-navigation">
+    <a class="mdl-navigation__link" href="/pokemon-quiz/">Pokemon Quiz</a>
+    <a class="mdl-navigation__link" href="/iv-calculator/">Pokemon IV Calculator</a>
+    <a class="mdl-navigation__link selected" href="/pokemon-type-chart/">Pokemon Type Chart</a>
+    <a class="mdl-navigation__link" href="/pokemon-weakness-calculator/">Pokemon Weakness Calculator</a>
+    <a class="mdl-navigation__link" href="https://www.amazon.com/gp/product/B00UPQ1NZ0/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=xhila0ac-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B00UPQ1NZ0&linkId=bca6224d37fbf732c46e20a87af93099" target="_blank" onclick="ga('send', 'event', 'BuyGymBadgesMenu', 'clicked');">Buy Gym Badges!</a>
+  </nav>
+</div>
+<main class="mdl-layout__content">
+<div id="main">
+    <div id="topdivAll">
+        <h1>Pokemon GO Type Chart Calculator</h1>
+        <p>Enter a Pokemon to see its type and type chart.</p>
+        <p><small><em>Updated for recent CP changes / Baby Pokemon + Togetic!</em></small></p>
+        <div>
+          <div class="mdl-textfield mdl-js-textfield">
+            <input class="mdl-textfield__input" type="text" id="countriesall" data-minchars="1" onclick="this.focus();this.select()">
+            <label class="mdl-textfield__label" for="sample1">Pokemon Name (Snorlax, Pikachu)...</label>
+          </div>
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" onclick="findType();">
+            Go
+          </button>
+         </div>
+        <div class="demo-wrapper hide-on-submit">
+        <script type="text/javascript">
+        amzn_assoc_placement = "adunit0";
+        amzn_assoc_search_bar = "false";
+        amzn_assoc_tracking_id = "xhila0ac-20";
+        amzn_assoc_ad_mode = "search";
+        amzn_assoc_ad_type = "smart";
+        amzn_assoc_marketplace = "amazon";
+        amzn_assoc_region = "US";
+        amzn_assoc_title = "";
+        amzn_assoc_default_search_phrase = "Pokemon GO Kit";
+        amzn_assoc_default_category = "All";
+        amzn_assoc_linkid = "2a019a7f0fd7e6df241391ccc7d758e6";
+        amzn_assoc_rows = "1";
+        </script>
+        <script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
+        </div>
+        <div class="mdl-spinner mdl-js-spinner is-active"></div>
+      <div id="bottomdivall">
+      <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+      <div class="demo-card-padder">
+          <div id="pokeBox2all" class="container">
+              <img id="calcpokall" src="/images/PokGif/3.gif">
+          </div>
+          <p id="resulttextall">Venusaur's type is:</p>
+          <h4 id="calcresultsall">Grass / Poison</h4>
+          <div class="type-chart"><div class="type-item dmg_normal"><h6 class="type-name">Normal</h6><p>1.00x</p></div><div class="type-item dmg_weak"><h6 class="type-name">Fire</h6><p>1.25x</p></div><div class="type-item dmg_resist"><h6 class="type-name">Water</h6><p>0.80x</p></div><div class="type-item dmg_resist"><h6 class="type-name">Electric</h6><p>0.80x</p></div><div class="type-item dmg_resist2"><h6 class="type-name">Grass</h6><p>0.64x</p></div><div class="type-item dmg_weak"><h6 class="type-name">Ice</h6><p>1.25x</p></div><div class="type-item dmg_resist"><h6 class="type-name">Fighting</h6><p>0.80x</p></div><div class="type-item dmg_normal"><h6 class="type-name">Poison</h6><p>1.00x</p></div><div class="type-item dmg_normal"><h6 class="type-name">Ground</h6><p>1.00x</p></div><div class="type-item dmg_weak"><h6 class="type-name">Flying</h6><p>1.25x</p></div><div class="type-item dmg_weak"><h6 class="type-name">Psychic</h6><p>1.25x</p></div><div class="type-item dmg_normal"><h6 class="type-name">Bug</h6><p>1.00x</p></div><div class="type-item dmg_normal"><h6 class="type-name">Rock</h6><p>1.00x</p></div><div class="type-item dmg_normal"><h6 class="type-name">Ghost</h6><p>1.00x</p></div><div class="type-item dmg_normal"><h6 class="type-name">Dragon</h6><p>1.00x</p></div><div class="type-item dmg_normal"><h6 class="type-name">Dark</h6><p>1.00x</p></div><div class="type-item dmg_normal"><h6 class="type-name">Steel</h6><p>1.00x</p></div><div class="type-item dmg_resist"><h6 class="type-name">Fairy</h6><p>0.80x</p></div></div>
+          <div class="type-chart-key">
+            <p><span class="dmg_weak2"></span> = Additional damage taken</p>
+            <p><span class="dmg_resist2"></span> = Resistance to damage taken</p>
+            <p><small>THERE ARE NO IMMUNITIES IN POKEMON GO</small></p>
+          </div>
+      </div>
+      </div>
+          <div class="demo-wrapper">
+          <script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=2c11f8a0-f83c-4fc0-83f6-9e79420c1cb8&storeId=xhila0ac-20"></script>
+          <p>The Pokemon GO Type Chart Calculator lists the traditional Pokemon type chart with resistances (red) and weaknesses (green). There are no immunities in Pokemon GO only resistances.</p>
+          <p>Venusaur's type chart can be read as: Venusaur resists damage from grass types (0.64x damage multiplier) and fighting, water, electric, and fairy types (0.8x damage multiplier).</p>
+          <p><a href="http://pokemongo.gamepedia.com/Venusaur" target="_blank">Venusaur</a> takes super effective damage (an extra 1.25x damage multiplier) from fire, flying, psychic, and ice types.</p>
+          <p>There are no double type advantages for Venusaur. A double type advantage (or weakness) adds a 1.56x damage multipler instead of 1.25x.</p>
+          <p>This Pokemon GO type chart does not account for STAB (Same Type Attack Bonus) which is an extra 1.25x damage multiplier in Pokemon GO.</p>
+          </div>
+      </div>
+    </div>
+</div>
+<footer class="mdl-mini-footer">
+  <div class="mdl-mini-footer__left-section">
+  <div class="mdl-logo">PokeDetect</div>
+  <ul class="mdl-mini-footer__link-list">
+        <li><a href="https://twitter.com/pokedetect" target="_blank">Twitter</a></li>
+        <li><a href="https://facebook.com/pokedetect" target="_blank">Facebook</a></li>
+      </ul>
+  </div>
+  <div class="mdl-mini-footer__right-section">
+  <p><small>Pokémon is Copyright Gamefreak, Nintendo and The Pokémon Company 2001-2016<br>All images and names owned and trademarked by Nintendo, Niantic, The Pokémon Company, and Gamefreak are property of their respective owners.</small></p>
+  </div>
+</footer>
+</main>
+    <script src="//code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script> 
+    <script src="../js/awesomplete.min.js"></script>
+    <script src="../js/material.min.js"></script>
+    <script src="../js/main.js?v6"></script>
+    <script>
+      $(document).ready(function(){
+        var input = document.getElementById("countriesall");
+        var awesomplete = new Awesomplete(input);
+        awesomplete.list = data;
+        $('#countriesall').keypress(function(e) {
+            if (e.keyCode == 13) {
+                findType();
+                $('#countriesall').blur();
+            }
+        });
+      });
+    </script>
+</body>
+</html>

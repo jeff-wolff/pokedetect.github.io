@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Find the best Pokemon GO type attackers and most effective Pokemon types to counter gyms. This calculator is a work in progress." />
+    <title>Pokemon GO Type Weakness Calculator</title>
+    <link rel="icon" href="/images/pkb.png">
+    <link rel="apple-touch-icon" href="pkb.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/pkb76.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/pkb120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/pkb152.png">
+    <link rel="icon" sizes="192x192" href="/images/pkbx4.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:400,700|Source+Sans+Pro:400,700">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../css/material.css">
+    <link rel="stylesheet" href="../css/style.min.css?v5">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-486826-23', 'auto');
+      ga('send', 'pageview');
+    </script>
+</head>
+
+<body>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+<header class="mdl-layout__header">
+  <div class="mdl-layout__header-row">
+    <span class="mdl-layout-title"><a href="/">PokeDetect</a></span>
+    <div class="mdl-layout-spacer"></div>
+      <a class="mdl-navigation__link pokemon-plus" href="https://www.amazon.com/gp/offer-listing/B01H482N6E/ref=as_li_ss_tl?ie=UTF8&condition=all&linkCode=ll2&tag=xhila0ac-20&linkId=cdbd05cc2debed32e39cc56172362012" target="_blank" onclick="ga('send', 'event', 'BuyPokePlus', 'clicked');">Buy <span class="hide-iphone-5">Pokemon</span> Go Plus!</a>
+      <a class="mdl-navigation__link gym-badges" href="https://www.amazon.com/gp/product/B00UPQ1NZ0/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=xhila0ac-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B00UPQ1NZ0&linkId=bca6224d37fbf732c46e20a87af93099" target="_blank" onclick="ga('send', 'event', 'BuyGymBadges', 'clicked');">Buy <span class="hide-iphone-5">Gym</span> Badges!</a>
+  </div>
+  <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+    <a class="mdl-layout__tab" href="/pokemon-quiz/">Quiz</a>
+    <a class="mdl-layout__tab" href="/iv-calculator/">IV Calculator</a>
+    <a class="mdl-layout__tab" href="/pokemon-type-chart/">Type Chart</a>
+    <a class="mdl-layout__tab is-active" href="/pokemon-weakness-calculator/">Gym Weakness</a>
+  </div>
+</header>
+<div class="mdl-layout__drawer">
+  <span class="mdl-layout-title"><a href="/">PokeDetect</a></span>
+  <nav class="mdl-navigation">
+    <a class="mdl-navigation__link" href="/pokemon-quiz/">Pokemon Quiz</a>
+    <a class="mdl-navigation__link" href="/iv-calculator/">Pokemon IV Calculator</a>
+    <a class="mdl-navigation__link" href="/pokemon-type-chart/">Pokemon Type Chart</a>
+    <a class="mdl-navigation__link selected" href="/pokemon-weakness-calculator/">Pokemon Weakness Calculator</a>
+    <a class="mdl-navigation__link" href="https://www.amazon.com/gp/product/B00UPQ1NZ0/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=xhila0ac-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B00UPQ1NZ0&linkId=bca6224d37fbf732c46e20a87af93099" target="_blank" onclick="ga('send', 'event', 'BuyGymBadgesMenu', 'clicked');">Buy Gym Badges!</a>
+  </nav>
+</div>
+<main class="mdl-layout__content">
+<div id="main">
+   <div id="topdiv">
+       <h1>Pokemon GO Type Weakness Calculator</h1>
+       <p>Enter a Pokemon GO gym defender to calculate its type weakness.</p>
+       <p><small><em>Updated for recent CP changes / Baby Pokemon + Togetic!</em></small></p>
+       <div>
+         <div class="mdl-textfield mdl-js-textfield">
+           <input class="mdl-textfield__input" type="text" id="countries" data-minchars="1" onclick="this.focus();this.select()">
+           <label class="mdl-textfield__label" for="sample1">Pokemon Name (Snorlax, Pikachu)...</label>
+         </div>
+         <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" onclick="calculate();">
+           Go
+         </button>
+        </div>
+           <div class="demo-wrapper hide-on-submit">
+           <script type="text/javascript">
+           amzn_assoc_placement = "adunit0";
+           amzn_assoc_search_bar = "false";
+           amzn_assoc_tracking_id = "xhila0ac-20";
+           amzn_assoc_ad_mode = "search";
+           amzn_assoc_ad_type = "smart";
+           amzn_assoc_marketplace = "amazon";
+           amzn_assoc_region = "US";
+           amzn_assoc_title = "";
+           amzn_assoc_default_search_phrase = "Pokemon GO Gym Accessories";
+           amzn_assoc_default_category = "All";
+           amzn_assoc_linkid = "2a019a7f0fd7e6df241391ccc7d758e6";
+           amzn_assoc_rows = "1";
+           </script>
+           <script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
+           </div>
+           <div class="mdl-spinner mdl-js-spinner is-active"></div>
+           <div id="bottomdiv">
+           <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+           <div class="demo-card-padder">
+               <div id="pokeBox2" class="container">
+                   <img id="calcpok" src="/images/PokGif/149.gif">
+               </div>
+               <p id="resulttext">The most effective move types against Dragonite are:</p>
+               <h4 id="calcresults">Ice</h4>
+               <div>
+                   <p>Recommended gym counter Pokemon</p>
+                   <div class="recommended-pokes"><div class="rpok"><img src="/images/PokIcons/131.png" alt=""><p>Lapras</p></div><div class="rpok"><img src="/images/PokIcons/87.png" alt=""><p>Dewgong</p></div><div class="rpok"><img src="/images/PokIcons/91.png" alt=""><p>Cloyster</p></div><div class="rpok"><img src="/images/PokIcons/124.png" alt=""><p>Jynx</p></div></div>
+               </div>
+           </div>
+           </div>
+               <div class="demo-wrapper">
+               <script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=78c63d27-6572-4b10-8690-daca05caf9ab&storeId=xhila0ac-20"></script>
+               <p>The Pokemon GO Type Weakness Calculator takes a Pokemon gym defender and calculates that Pokemon's type weaknesses. It will also recommend an attacking Pokemon that has those effective Pokemon move types.</p>
+               <p><em>CAUTION: some of the Pokemon counters are not reliable.</em> Make sure you have the specified super effective move types before using that Pokemon.</p> 
+
+               <p><u>If that still doesn't work,</u> try searching for the Pokemon with our <a href="/pokemon-type-chart/">Pokemon GO Type Chart</a> and look for resistances (red). Then use your highest CP Pokemon with a type and move type that is not resisted by the defending Pokemon.</p>
+               <p>This is likely an <a href="http://pokemongo.gamepedia.com/Arcanine" target="_blank">Arcanine</a>, <a href="http://pokemongo.gamepedia.com/Vaporeon" target="_blank">Vaporeon</a>, <a href="http://pokemongo.gamepedia.com/Exeggutor" target="_blank">Exeggutor</a>, or maybe you are lucky enough to have a <a href="http://pokemongo.gamepedia.com/Snorlax" target="_blank">Snorlax</a>, <a href="http://pokemongo.gamepedia.com/Dragonite" target="_blank">Dragonite</a>, or <a href="http://pokemongo.gamepedia.com/Lapras" target="_blank">Lapras</a>!</p>
+               </div>
+
+           </div> 
+   </div>
+</div>
+<footer class="mdl-mini-footer">
+  <div class="mdl-mini-footer__left-section">
+  <div class="mdl-logo">PokeDetect</div>
+  <ul class="mdl-mini-footer__link-list">
+        <li><a href="https://twitter.com/pokedetect" target="_blank">Twitter</a></li>
+        <li><a href="https://facebook.com/pokedetect" target="_blank">Facebook</a></li>
+      </ul>
+  </div>
+  <div class="mdl-mini-footer__right-section">
+  <p><small>Pokémon is Copyright Gamefreak, Nintendo and The Pokémon Company 2001-2016<br>All images and names owned and trademarked by Nintendo, Niantic, The Pokémon Company, and Gamefreak are property of their respective owners.</small></p>
+  </div>
+</footer>
+</main>
+<script src="//code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script> 
+<script src="../js/awesomplete.min.js"></script>
+<script src="../js/material.min.js"></script>
+<script src="../js/main.js?v7"></script>
+<script>
+  $(document).ready(function(){
+    var input = document.getElementById("countries");
+    var awesomplete = new Awesomplete(input);
+    awesomplete.list = data;
+    $('#countries').keypress(function(e) {
+        if (e.keyCode == 13) {
+            calculate();
+        }
+    });
+  });
+</script>
+</body>
+</html>

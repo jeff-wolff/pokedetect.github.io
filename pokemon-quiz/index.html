@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Pokemon type quiz tests your knowledge of the original 151 Pokemon type weaknesses. Choose the most effective move type to use against a Pokemon in Pokemon GO!" />
+    <meta property="og:title" content="Pokemon GO Type Weakness Quiz" />
+    <meta property="og:description" content="This Pokemon type quiz tests your knowledge of the original 151 Pokemon type weaknesses. Choose the most effective move type to use against a Pokemon in Pokemon GO!" />
+    <meta property="og:image" content="https://pokedetect.com/images/fb.png" />
+    <meta property="og:image:secure_url" content="https://pokedetect.com/images/fb.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <title>Pokemon GO Type Quiz</title>
+    <link rel="icon" href="/images/pkb.png">
+    <link rel="apple-touch-icon" href="pkb.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/pkb76.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/pkb120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/pkb152.png">
+    <link rel="icon" sizes="192x192" href="/images/pkbx4.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:400,700|Source+Sans+Pro:400,700">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet"  href="../css/material.css">
+    <link rel="stylesheet" href="../css/style.min.css?v5">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-486826-23', 'auto');
+      ga('send', 'pageview');
+    </script>
+</head>
+
+<body class="pokequiz">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title"><a href="/">PokeDetect</a></span>
+          <div class="mdl-layout-spacer"></div>
+           <a class="mdl-navigation__link pokemon-plus" href="https://www.amazon.com/gp/offer-listing/B01H482N6E/ref=as_li_ss_tl?ie=UTF8&condition=all&linkCode=ll2&tag=xhila0ac-20&linkId=cdbd05cc2debed32e39cc56172362012" target="_blank" onclick="ga('send', 'event', 'BuyPokePlus', 'clicked');">Buy <span class="hide-iphone-5">Pokemon</span> Go Plus!</a>
+           <a class="mdl-navigation__link gym-badges" href="https://www.amazon.com/gp/product/B00UPQ1NZ0/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=xhila0ac-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B00UPQ1NZ0&linkId=bca6224d37fbf732c46e20a87af93099" target="_blank" onclick="ga('send', 'event', 'BuyGymBadges', 'clicked');">Buy <span class="hide-iphone-5">Gym</span> Badges!</a>
+        </div>
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+          <a class="mdl-layout__tab is-active" href="/pokemon-quiz/">Quiz</a>
+          <a class="mdl-layout__tab" href="/iv-calculator/">IV Calculator</a>
+          <a class="mdl-layout__tab" href="/pokemon-type-chart/">Type Chart</a>
+          <a class="mdl-layout__tab" href="/pokemon-weakness-calculator/">Gym Weakness</a>
+        </div>
+      </header>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title"><a href="/">PokeDetect</a></span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link selected" href="/pokemon-quiz/">Pokemon Quiz</a>
+          <a class="mdl-navigation__link" href="/iv-calculator/">Pokemon IV Calculator</a>
+          <a class="mdl-navigation__link" href="/pokemon-type-chart/">Pokemon Type Chart</a>
+          <a class="mdl-navigation__link" href="/pokemon-weakness-calculator/">Pokemon Weakness Calculator</a>
+          <a class="mdl-navigation__link" href="https://www.amazon.com/gp/product/B00UPQ1NZ0/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=xhila0ac-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B00UPQ1NZ0&linkId=bca6224d37fbf732c46e20a87af93099" target="_blank" onclick="ga('send', 'event', 'BuyGymBadgesMenu', 'clicked');">Buy Gym Badges!</a>
+        </nav>
+      </div>
+      <main class="mdl-layout__content">
+        <div id="main" class="page-content">
+            <div id="skip"></div>
+            <div id="game">
+                <div id="startpage">
+                    <h1 id="PDtitle">Pokemon GO Type Weakness Quiz</h1>
+                    <p id="testtext">Choose the Pokémon type that deals the most effective damage to the Pokémon shown below! You will be shown <strong>20 random Pokémon</strong> from the original 151 + Baby Pokemon and Togetic!</p>
+                    <img id="startpoke" src="../images/PokGif/6.gif">
+                    <p id="startprompt"><strong>Click here to begin</strong></p>
+                    <p class="type-rules smaller">Rule: Generation VI - Original 151 Pokémon (Pokemon GO Rules)</p>
+                    <p class="type-rules smaller">10 points for first correct answer, 2 points for second correct  answer, and 1 point for third correct answer. Maximum score for the quiz is 200. Answer every question correctly on your first try to score the most points!</p>
+                </div>
+                <div id="wholebox" class="wrap-btns ">
+                    <div id="titlediv">
+                        <div id="gameover">
+                            <div class="social-buttons">
+                            <div class="tweet-share-button"><a id="shareTweet" href="" target="_blank"><img src="../images/tweet.png" alt=""></a></div><div class="fb-share-button" data-href="https://pokedetect.com/pokemon-quiz/" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpokedetect.com%2Fpokemon-quiz%2F&amp;src=sdkpreparse">Share</a></div>
+                            </div>
+                            <h4 id="gameovertitle">Game Over</h4>
+                            <a href="https://www.amazon.com/gp/product/B00UPQ1NZ0/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=xhila0ac-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B00UPQ1NZ0&linkId=bca6224d37fbf732c46e20a87af93099" target="_blank" onclick="ga('send', 'event', 'QuizGymBadges', 'clicked');" class="trainer_badge_img">Buy Gym Badges</a>
+                            <p id="gameovertext">Your score:</p>
+                            <h4 id="finalscoreNo"></h4>
+                            <p><small>Quiz completed in <span id="finaltimeNo"></span> seconds.</small></p>
+                            <p id="resultline"></p>
+                            <p id="promptgo">Click here to restart</p>
+                        
+                        </div>
+                        <div id="score-div">
+                            <p id="score">Score: <span id="scoreNo">0</span></p>
+                        </div>
+                        <h2 id="title">Which is the strongest type to use against <span id="pokname">Charizard</span>?</h2>
+                        <div class="type-hint">
+                          <div class="flipper">
+                            <div class="front">
+                              <p>Hint</p>
+                            </div>
+                            <div class="back">
+                              <p></p>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div id="pokeBox" class="container">
+                        <img id="pok" src="../images/PokGif/6.gif">
+                        
+                        <h3 id="correctT"></h3>
+                        <p id="correctP"></p>
+                        <p id="prompt" class="smaller">Click anywhere to skip</p>
+                    </div>
+                    
+                    <div id="buttons">
+                        <button id="button1" onclick="button1click()" class="btn Grass">Grass</button>
+                        <button id="button2" onclick="button2click()" class="btn Water">Water</button>
+                        <button id="button3" onclick="button3click()" class="btn Fire">Fire</button>
+                        <button id="button4" onclick="button4click()" class="btn Fire">Fire</button>
+                    </div>
+                </div>
+                <div class="demo-wrapper">
+                <script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=87f4d047-2073-4295-afa1-5403f79c4e24&storeId=xhila0ac-20"></script>
+                </div>
+            </div>
+        </div>
+        <footer class="mdl-mini-footer">
+          <div class="mdl-mini-footer__left-section">
+          <div class="mdl-logo">PokeDetect</div>
+          <ul class="mdl-mini-footer__link-list">
+                <li><a href="https://twitter.com/pokedetect" target="_blank">Twitter</a></li>
+                <li><a href="https://facebook.com/pokedetect" target="_blank">Facebook</a></li>
+              </ul>
+          </div>
+          <div class="mdl-mini-footer__right-section">
+          <p><small>Pokémon is Copyright Gamefreak, Nintendo and The Pokémon Company 2001-2016<br>All images and names owned and trademarked by Nintendo, Niantic, The Pokémon Company, and Gamefreak are property of their respective owners.</small></p>
+          </div>
+        </footer>
+      </main>
+    </div>
+        <script src="//code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script> 
+        <script src="../js/material.min.js"></script>
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1261653463857437";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+        <script>window.twttr = (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0],
+            t = window.twttr || {};
+          if (d.getElementById(id)) return t;
+          js = d.createElement(s);
+          js.id = id;
+          js.src = "https://platform.twitter.com/widgets.js";
+          fjs.parentNode.insertBefore(js, fjs);
+         
+          t._e = [];
+          t.ready = function(f) {
+            t._e.push(f);
+          };
+         
+          return t;
+        }(document, "script", "twitter-wjs"));</script>
+        <script src="../js/main.js?v5"></script>
+        <script src="../js/game.js?v2"></script>
+</body>
+
+</html>
